@@ -59,7 +59,7 @@
                                                         <div class="col-xl-8 col-lg-7 col-md-6">
                                                                 <div class="buttons clearfix">
 									<span class="magnific-gallery">
-                                        <a href="{{ path ('Ajout') }}" class="btn_hero" title="Photo title" data-effect="mfp-zoom-in"><i class="icon_image"></i>Ajouter Produit</i></a>
+                                        <a href="{{ path ('Ajout') }}" class="btn_hero" title="Photo title" data-effect="mfp-zoom-in"><i class="icon_image"></i>Ajouter Produit</a>
 										<a href="{{ asset('images/detail_1.jpg') }}" class="btn_hero" title="Photo title" data-effect="mfp-zoom-in"><i class="icon_image"></i>View photos</a>
 										<a href="{{ asset('images/detail_2.jpg') }}" title="Photo title" data-effect="mfp-zoom-in"></a>
 										<a href="{{ asset('images/detail_3.jpg') }}" title="Photo title" data-effect="mfp-zoom-in"></a>
@@ -98,12 +98,16 @@
                                                         <h4>Starters</h4>
 
                                                         <div class="row">
+
+
+
                                                                 {% for p in produits %}
                                                                 <div class="col-md-6">
                                                                         <a class="menu_item modal_dialog" href="#modal-dialog">
 
 
-                                                                                <figure><img src="{{ p.displayPhoto }}"  alt="thumb" class="lazy"></figure>
+                                                                                <figure><img src="{{ asset('/uploads/' ~ p.nomimage ) }}"  alt="thumb" class="lazy"></figure>
+
 
                                                                                 <h3> {{ p.nomproduit }}</h3>
                                                                                 <p> {{ p.descriptionp }}</p>
@@ -129,6 +133,7 @@
                                                                 <div class="col-md-6">
                                                                         <a class="menu_item modal_dialog" href="#modal-dialog">
                                                                                 <figure><img src="images/menu-thumb-placeholder.jpg" data-src="img/menu-thumb-5.jpg" alt="thumb" class="lazy"></figure>
+
                                                                                 <h3>5. Cheese Quesadilla</h3>
                                                                                 <p>Fuisset mentitum deleniti sit ea.</p>
                                                                                 <strong>$9.40</strong>

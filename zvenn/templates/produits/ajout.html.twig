@@ -12,10 +12,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
-    <link rel="apple-touch-icon" type="image/x-icon" href="{{ asset('images/apple-touch-icon-57x57-precomposed.png') }}">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="{{ asset('images/apple-touch-icon-72x72-precomposed.png') }}">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="{{ asset('images/apple-touch-icon-114x114-precomposed.png') }}">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="{{ asset('images/apple-touch-icon-144x144-precomposed.png') }}">
+    <link rel="apple-touch-icon" type="image/x-icon" href="{{ asset('/images/apple-touch-icon-57x57-precomposed.png') }}">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="{{ asset('/images/apple-touch-icon-72x72-precomposed.png') }}">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="{{ asset('/images/apple-touch-icon-114x114-precomposed.png') }}">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="{{ asset('/images/apple-touch-icon-144x144-precomposed.png') }}">
 
 
     {% block stylesheets %}
@@ -41,7 +41,7 @@
         <script src="{{ "assets/validate.js" }}"></script>
     {% endblock %}
 </head>
-<body>
+
 
 {{ form_start(form) }}
 
@@ -77,7 +77,7 @@
                 'placeholder':'type produit','class':'type'
             }}) }}
             <div class="form-group text-center">
-                <button class="btn_1 gradient">Ajoutter</button>
+                <button class="btn_1 gradient">Ajouter</button>
             </div>
 
             {{ form(form,{'method':'GET'}) }}
@@ -86,6 +86,7 @@
     </div>
 </div>
 {{ form_end(form) }}
+
 
 
 

@@ -4,6 +4,11 @@ namespace App\Entity;
 
 use App\Repository\ProduitsRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+
 
 /**
  * @ORM\Entity(repositoryClass=ProduitsRepository::class)
@@ -20,7 +25,13 @@ class Produits
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(
+     * min=4,
+     * max=10,
+     * minMessage = "nom du produit doit etre au minimum {{ limit }} characters long",
+     * minMessage = "nom du produit doit etre au maximum {{ limit }} characters long")
      */
+
     private $nom_produit;
 
     /**
@@ -28,12 +39,35 @@ class Produits
      */
     private $descriptionp;
 
+
     /**
      * @ORM\Column(type="blob")
      */
     private $image_produit;
 
     private $rawPhoto;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $nom_image;
+
+
+
+    public function getNomimage(): ?string
+    {
+        return $this->nom_image;
+    }
+
+    public function setNomimage(string $nom_image): self
+    {
+        $this->nom_image = $nom_image;
+
+        return $this;
+    }
+
+
+
 
     public function displayPhoto()
     {
@@ -86,10 +120,14 @@ class Produits
         return $this;
     }
 
-    public function getimageproduit()
+
+
+    public function getimageproduit(File $image = null)
     {
         return $this->image_produit;
     }
+
+
 
     public function setImageProduit($image_produit): self
     {
