@@ -33,9 +33,10 @@ class ProduitsController extends AbstractController
         $repo=$this->getDoctrine()->getRepository(Produits::class);
 
         $produits=$repo->findAll();
-        return $this->render('produits/affiche.html.twig',
+
+        return $this->render('index.html.twig',
             [
-                'produits'=>$produits
+                'produits'=>$produits,
             ]);
     }
     /**
@@ -61,6 +62,7 @@ class ProduitsController extends AbstractController
             $produits->setNomimage($filename);
 
             $produits->setImageProduit($filename);
+            $produits->setCreatedAt(new \DateTime());
 
             $em=$this->getDoctrine()->getManager();
 
@@ -121,7 +123,6 @@ class ProduitsController extends AbstractController
         return $this->redirectToRoute('affiche');
 
     }
-
 
 }
 

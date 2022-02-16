@@ -4,19 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="FooYes - Quality delivery or takeaway food">
-    <meta name="author" content="Ansonika">
-    <title>{% block title %}Welcome!{% endblock %}</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-    {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+    <meta name="description" content="Zvenn - Quality delivery or takeaway food">
+    <meta name="Zvenn" content="Zvenn">
+    <title>{% block title %}ajouter produit!{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
-    <link rel="apple-touch-icon" type="image/x-icon" href="{{ asset('/images/apple-touch-icon-57x57-precomposed.png') }}">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="{{ asset('/images/apple-touch-icon-72x72-precomposed.png') }}">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="{{ asset('/images/apple-touch-icon-114x114-precomposed.png') }}">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="{{ asset('/images/apple-touch-icon-144x144-precomposed.png') }}">
-
 
     {% block stylesheets %}
 
@@ -24,7 +15,7 @@
         <link href="{{ asset("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap") }}" rel="stylesheet">
         <!-- BASE CSS -->
         <link href="{{ asset("css/bootstrap_customized.css/bootstrap_customized.min.css") }}" rel="stylesheet">
-        <link href="{{ "css/style.css" }}" rel="stylesheet">
+        <link href="{{ asset("css/style.css") }}" rel="stylesheet">
 
         <!-- SPECIFIC CSS -->
         <link href="{{asset("css/detail-page.css") }}" rel="stylesheet">
@@ -41,6 +32,8 @@
         <script src="{{ "assets/validate.js" }}"></script>
     {% endblock %}
 </head>
+{{ include('header.html.twig') }}
+
 
 
 {{ form_start(form) }}
@@ -52,7 +45,7 @@
         <div class="col-lg-5">
             <div class="text-center add_bottom_15">
                 <h4>Ajouter un produit</h4>
-                <p>Veiller remplir tout les champs /p>
+                <p> Veiller remplir tout les champs </p>
             </div>
         <div class="form-group">
             {{ form_label(form.nom_produit,"Nom Produit") }}
@@ -60,6 +53,9 @@
             {{ form_widget(form.nom_produit,{'attr':{
                 'placeholder':'nom produits','class':'nom'
             }}) }}
+            {{ form_label(form.nom_produit,"Type") }}
+
+            {{ form_widget(form.type)}}
             {{ form_label(form.descriptionp,"description") }}
             {{ form_widget(form.descriptionp,{'attr':{
                 'placeholder':'description','class':'description'
@@ -86,8 +82,4 @@
     </div>
 </div>
 {{ form_end(form) }}
-
-
-
-
-<!-- /container -->
+{{ include('footer.html.twig') }}

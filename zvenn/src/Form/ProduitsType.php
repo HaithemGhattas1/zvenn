@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Produits;
+use App\Entity\Type;
+
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -29,6 +31,10 @@ class ProduitsType extends AbstractType
 
 
             ->add('prix_produit')
+            ->add('type', EntityType::class, [
+                'class' => Type::class,
+                'choice_label' => 'nomtype'
+            ])
             ->add('type_produit', ChoiceType::class, [
                 'choices'  => [
                     'dessert' => 'dessert',

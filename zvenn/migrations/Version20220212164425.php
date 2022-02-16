@@ -20,10 +20,6 @@ final class Version20220212164425 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE produits MODIFY id_restaurant INT NOT NULL');
-        $this->addSql('ALTER TABLE produits DROP PRIMARY KEY');
-        $this->addSql('ALTER TABLE produits CHANGE id_restaurant id_produit INT AUTO_INCREMENT NOT NULL');
-        $this->addSql('ALTER TABLE produits ADD PRIMARY KEY (id_produit)');
     }
 
     public function down(Schema $schema): void

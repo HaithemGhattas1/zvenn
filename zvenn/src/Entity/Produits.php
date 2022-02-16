@@ -29,13 +29,18 @@ class Produits
      * min=4,
      * max=10,
      * minMessage = "nom du produit doit etre au minimum {{ limit }} characters long",
-     * minMessage = "nom du produit doit etre au maximum {{ limit }} characters long")
+     * maxMessage = "nom du produit doit etre au maximum {{ limit }} characters long")
      */
 
     private $nom_produit;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(
+     * min=4,
+     * max=50,
+     * minMessage = "nom du produit doit etre au minimum {{ limit }} characters long",
+     * maxMessage = "nom du produit doit etre au maximum {{ limit }} characters long")
      */
     private $descriptionp;
 
@@ -51,6 +56,11 @@ class Produits
      * @ORM\Column(type="string", length=255)
      */
     private $nom_image;
+
+    /**
+     * @ORM\Column (type="datetime")
+     */
+    private $createdAt;
 
 
 
@@ -87,6 +97,12 @@ class Produits
      * @ORM\Column(type="string", length=255)
      */
     private $type_produit;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Type::class, inversedBy="produits")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $type;
 
 
 
@@ -159,4 +175,30 @@ class Produits
 
         return $this;
     }
+
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+        return $this;
+
+    }
+
+    public function getType(): ?Type
+    {
+        return $this->type;
+    }
+
+    public function setType(?Type $type): self
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+
 }

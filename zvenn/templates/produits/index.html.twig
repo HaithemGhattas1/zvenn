@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="FooYes - Quality delivery or takeaway food">
     <meta name="author" content="Ansonika">
-    <title>{% block title %}restaurarnt!{% endblock %}</title>
+    <title>{% block title %}Welcome!{% endblock %}</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
     {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -59,8 +59,6 @@
                             <div class="col-xl-8 col-lg-7 col-md-6">
                                 <div class="buttons clearfix">
 									<span class="magnific-gallery">
-                                        <a href="{{ path ('Ajouttype') }}" class="btn_hero" title="Photo title" data-effect="mfp-zoom-in"><i class="icon_image"></i>Ajouter Categorie</a>
-
                                         <a href="{{ path ('Ajout') }}" class="btn_hero" title="Photo title" data-effect="mfp-zoom-in"><i class="icon_image"></i>Ajouter Produit</a>
 										<a href="{{ asset('images/detail_1.jpg') }}" class="btn_hero" title="Photo title" data-effect="mfp-zoom-in"><i class="icon_image"></i>View photos</a>
 										<a href="{{ asset('images/detail_2.jpg') }}" title="Photo title" data-effect="mfp-zoom-in"></a>
@@ -81,11 +79,10 @@
         <nav class="secondary_nav sticky_horizontal">
             <div class="container">
                 <ul id="secondary_nav">
-
-                    {% for p in produits %}
-                        <li><a class="list-group-item list-group-item-action" href="#section-1">{{p.type.nomtype}}</a></li>
-                    {% endfor %}
-
+                    <li><a class="list-group-item list-group-item-action" href="#section-1">Starters</a></li>
+                    <li><a class="list-group-item list-group-item-action" href="#section-2">Main Courses</a></li>
+                    <li><a class="list-group-item list-group-item-action" href="#section-3">Desserts</a></li>
+                    <li><a class="list-group-item list-group-item-action" href="#section-4">Drinks</a></li>
                     <li><a class="list-group-item list-group-item-action" href="#section-5"><i class="icon_chat_alt"></i>Reviews</a></li>
                 </ul>
             </div>
@@ -95,29 +92,183 @@
 
         <div class="bg_gray">
             <div class="container margin_detail">
-
                 <div class="row">
                     <div class="col-lg-8 list_menu">
-
-
-
                         <section id="section-1">
+                            <h4>Starters</h4>
+
+                            {% for p in produits %}
+                                {% include 'produits/affiche.html.twig' with {p:p} only %}
+                            {% endfor %}
+                        </section>
+                        <!-- /section -->
+                        <section id="section-2">
                             <h4>Main Courses</h4>
                             <div class="row">
-                                {% for p in produits %}
-
                                 <div class="col-md-6">
+                                    <a class="menu_item modal_dialog" href="#modal-dialog">
+                                        <figure><img src="images/menu-thumb-placeholder.jpg" data-src="img/menu-thumb-5.jpg" alt="thumb" class="lazy"></figure>
 
-                                        {% include 'produits/affiche.html.twig' with {p:p} only %}
+                                        <h3>5. Cheese Quesadilla</h3>
+                                        <p>Fuisset mentitum deleniti sit ea.</p>
+                                        <strong>$9.40</strong>
+                                    </a>
                                 </div>
-                                {% endfor %}
-
-
+                                <div class="col-md-6">
+                                    <a class="menu_item modal_dialog" href="#modal-dialog">
+                                        <figure><img src="images/menu-thumb-placeholder.jpg" data-src="img/menu-thumb-6.jpg" alt="thumb" class="lazy"></figure>
+                                        <h3>6. Chorizo & Cheese</h3>
+                                        <p>Fuisset mentitum deleniti sit ea.</p>
+                                        <strong>$9.40</strong>
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a class="menu_item modal_dialog" href="#modal-dialog">
+                                        <figure><img src="images/menu-thumb-placeholder.jpg" data-src="img/menu-thumb-7.jpg" alt="thumb" class="lazy"></figure>
+                                        <h3>7. Beef Taco</h3>
+                                        <p>Fuisset mentitum deleniti sit ea.</p>
+                                        <strong>$9.40</strong>
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a class="menu_item modal_dialog" href="#modal-dialog">
+                                        <figure><img src="images/menu-thumb-placeholder.jpg" data-src="img/menu-thumb-8.jpg" alt="thumb" class="lazy"></figure>
+                                        <h3>8. Minced Beef Double Layer</h3>
+                                        <p>Fuisset mentitum deleniti sit ea.</p>
+                                        <strong>$9.40</strong>
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a class="menu_item modal_dialog" href="#modal-dialog">
+                                        <figure><img src="images/menu-thumb-placeholder.jpg" data-src="img/menu-thumb-9.jpg" alt="thumb" class="lazy"></figure>
+                                        <h3>9. Piri Piri Chicken</h3>
+                                        <p>Fuisset mentitum deleniti sit ea.</p>
+                                        <strong>$9.40</strong>
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a class="menu_item modal_dialog" href="#modal-dialog">
+                                        <figure><img src="images/menu-thumb-placeholder.jpg" data-src="img/menu-thumb-10.jpg" alt="thumb" class="lazy"></figure>
+                                        <h3>10. Burrito Al Pastor</h3>
+                                        <p>Fuisset mentitum deleniti sit ea.</p>
+                                        <strong>$9.40</strong>
+                                    </a>
+                                </div>
                             </div>
                             <!-- /row -->
                         </section>
+                        <!-- /section -->
+                        <section id="section-3">
+                            <h4>Desserts</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <a class="menu_item modal_dialog" href="#modal-dialog">
+                                        <figure><img src="images/menu-thumb-placeholder.jpg" data-src="img/menu-thumb-5.jpg" alt="thumb" class="lazy"></figure>
+                                        <h3>5. Cheese Quesadilla</h3>
+                                        <p>Fuisset mentitum deleniti sit ea.</p>
+                                        <strong>$9.40</strong>
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a class="menu_item modal_dialog" href="#modal-dialog">
+                                        <figure><img src="images/menu-thumb-placeholder.jpg" data-src="img/menu-thumb-6.jpg" alt="thumb" class="lazy"></figure>
+                                        <h3>6. Chorizo & Cheese</h3>
+                                        <p>Fuisset mentitum deleniti sit ea.</p>
+                                        <strong>$9.40</strong>
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a class="menu_item modal_dialog" href="#modal-dialog">
+                                        <figure><img src="images/menu-thumb-placeholder.jpg" data-src="img/menu-thumb-7.jpg" alt="thumb" class="lazy"></figure>
+                                        <h3>7. Beef Taco</h3>
+                                        <p>Fuisset mentitum deleniti sit ea.</p>
+                                        <strong>$9.40</strong>
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a class="menu_item modal_dialog" href="#modal-dialog">
+                                        <figure><img src="images/menu-thumb-placeholder.jpg" data-src="img/menu-thumb-8.jpg" alt="thumb" class="lazy"></figure>
+                                        <h3>8. Minced Beef Double Layer</h3>
+                                        <p>Fuisset mentitum deleniti sit ea.</p>
+                                        <strong>$9.40</strong>
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a class="menu_item modal_dialog" href="#modal-dialog">
+                                        <figure><img src="images/menu-thumb-placeholder.jpg" data-src="img/menu-thumb-9.jpg" alt="thumb" class="lazy"></figure>
+                                        <h3>9. Piri Piri Chicken</h3>
+                                        <p>Fuisset mentitum deleniti sit ea.</p>
+                                        <strong>$9.40</strong>
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a class="menu_item modal_dialog" href="#modal-dialog">
+                                        <figure><img src="images/menu-thumb-placeholder.jpg" data-src="img/menu-thumb-10.jpg" alt="thumb" class="lazy"></figure>
+                                        <h3>10. Burrito Al Pastor</h3>
+                                        <p>Fuisset mentitum deleniti sit ea.</p>
+                                        <strong>$9.40</strong>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- /row -->
+                        </section>
+                        <!-- /section -->
+                        <section id="section-4">
+                            <h4>Drinks</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <a class="menu_item modal_dialog" href="#modal-dialog">
+                                        <figure><img src="images/menu-thumb-placeholder.jpg" data-src="img/menu-thumb-5.jpg" alt="thumb" class="lazy"></figure>
+                                        <h3>11. Coca Cola</h3>
+                                        <p>Fuisset mentitum deleniti sit ea.</p>
+                                        <strong>$2.40</strong>
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a class="menu_item modal_dialog" href="#modal-dialog">
+                                        <figure><img src="images/menu-thumb-placeholder.jpg" data-src="img/menu-thumb-6.jpg" alt="thumb" class="lazy"></figure>
+                                        <h3>12. Corona Beer</h3>
+                                        <p>Fuisset mentitum deleniti sit ea.</p>
+                                        <strong>$9.40</strong>
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a class="menu_item modal_dialog" href="#modal-dialog">
+                                        <figure><img src="images/menu-thumb-placeholder.jpg" data-src="img/menu-thumb-7.jpg" alt="thumb" class="lazy"></figure>
+                                        <h3>13. Red Wine</h3>
+                                        <p>Fuisset mentitum deleniti sit ea.</p>
+                                        <strong>$19.40</strong>
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a class="menu_item modal_dialog" href="#modal-dialog">
+                                        <figure><img src="images/menu-thumb-placeholder.jpg" data-src="img/menu-thumb-8.jpg" alt="thumb" class="lazy"></figure>
+                                        <h3>14. White Wine</h3>
+                                        <p>Fuisset mentitum deleniti sit ea.</p>
+                                        <strong>$19.40</strong>
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a class="menu_item modal_dialog" href="#modal-dialog">
+                                        <figure><img src="images/menu-thumb-placeholder.jpg" data-src="img/menu-thumb-9.jpg" alt="thumb" class="lazy"></figure>
+                                        <h3>15. Mineral Water</h3>
+                                        <p>Fuisset mentitum deleniti sit ea.</p>
+                                        <strong>$1.40</strong>
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a class="menu_item modal_dialog" href="#modal-dialog">
+                                        <figure><img src="images/menu-thumb-placeholder.jpg" data-src="img/menu-thumb-10.jpg" alt="thumb" class="lazy"></figure>
+                                        <h3>16. Red Bull</h3>
+                                        <p>Fuisset mentitum deleniti sit ea.</p>
+                                        <strong>$3.40</strong>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- /row -->
+                        </section>
+                        <!-- /section -->
                     </div>
-
                     <!-- /col -->
                     <div class="col-lg-4" id="sidebar_fixed">
                         <div class="box_order mobile_fixed">
